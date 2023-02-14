@@ -1,0 +1,36 @@
+<h1>Перепись</h1>
+<div class="panel panel-primary">
+
+  <div class="panel-body">
+    <form action="javascript:void(0)" id="frm-add-student" method="post">
+        <label for="input_name">Имя</label>
+        <input type="text" id="input_name" class="form-control">
+        <label for="input_age">Возраст</label>
+        <input type="text" id="input_age" class="form-control">
+        <button class="btn btn-primary">Добавить</button>
+        <button class="btn btn-primary">Изменить</button>
+     </form>
+  </div>
+
+</div>
+<div class="panel panel-primary">
+  <div class="panel-body">
+
+    <ul class="list-group">
+        <?php
+        if (count($citizens) > 0) {
+          foreach ($citizens as $index => $data) {
+        ?>
+            <li class="list-group-item"><?= $data->name ?> <?= $data->age ?> <a href="javascript:void(0)" class="btn btn-danger btn-delete-citizen" data-name="<?= $data->name ?>">x</a></li>
+        <?php
+          }
+        }
+        ?>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <div>Переписано человек: <?php echo 11; ?></div>
+    <div>Общий возраст: <?php echo 711; ?></div>
+  </div>
+</div>
