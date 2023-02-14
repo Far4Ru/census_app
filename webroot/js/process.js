@@ -8,9 +8,10 @@ $(function(){
     });
 
     // ajax request to save citizen
-    $("#frm-add-citizen").on("submit", function(){
+    $("#frm-add-citizen").on("click", function(){
 
-        var postdata = $("#frm-add-citizen").serialize();
+        var postdata = $("frm-citizen").serialize();
+
         $.ajax({
             url: "/ajax-add-citizen",
             data: postdata,
@@ -18,15 +19,15 @@ $(function(){
             method: "post",
             success:function(response){
 
-                window.location.href = '/list-citizens'
+                window.location.href = '/'
             }
         });
     });
 
     // ajax request to update citizen
-    $(document).on("submit", "#frm-edit-citizen", function(){
+    $("#frm-edit-citizen").on("click", function(){
 
-        var postdata = $("#frm-edit-citizen").serialize();
+        var postdata = $("#frm-citizen").serialize();
 
         $.ajax({
             url: "/ajax-edit-citizen",
@@ -35,7 +36,7 @@ $(function(){
             method: "post",
             success:function(response){
 
-                window.location.href = '/list-citizens'
+                window.location.href = '/'
             }
         });
     });
@@ -53,7 +54,7 @@ $(function(){
                 method: "post",
                 success:function(response){
 
-                    window.location.href = '/list-citizens'
+                    window.location.href = '/'
                 }
             });
         }

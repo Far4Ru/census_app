@@ -80,7 +80,7 @@ class AjaxController extends AppController
     {
         if ($this->request->is('ajax')) {
 
-            $citizen = $this->Citizens->get($this->request->getData("citizen_id"));
+            $citizen = $this->Citizens->get($this->request->getData("citizen_name"));
 
             if ($this->Citizens->delete($citizen)) {
 
