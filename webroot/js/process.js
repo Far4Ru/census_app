@@ -10,7 +10,7 @@ $(function(){
     // ajax request to save citizen
     $("#frm-add-citizen").on("click", function(){
 
-        var postdata = $("frm-citizen").serialize();
+        var postdata = $("#frm-citizen").serialize();
 
         $.ajax({
             url: "/ajax-add-citizen",

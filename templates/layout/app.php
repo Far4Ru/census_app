@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <title>CakePHP 4 CRUD Using Ajax</title>
   <meta charset="utf-8">

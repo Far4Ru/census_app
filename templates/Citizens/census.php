@@ -5,11 +5,11 @@
     <form id="frm-citizen">
         <div>
             <label for="input_name">Имя</label>
-            <input type="text" name="name">
+            <input type="text" required name="name">
         </div>
         <div>
             <label for="input_age">Возраст</label>
-            <input type="number" name="age">
+            <input type="number" required name="age">
         </div>
         <div>
             <button class="btn btn-primary" id="frm-add-citizen">Добавить</button>
