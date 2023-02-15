@@ -22,7 +22,7 @@ class AjaxController extends AppController
             $citizen = $this->Citizens->patchEntity($citizen, $this->request->getData());
             if ($this->Citizens->save($citizen)) {
 
-                $this->Flash->success(__('Citizen has been created'));
+                $this->Flash->success(__('Информация добавлена'));
 
                 echo json_encode(array(
                     "status" => 1,
@@ -47,15 +47,15 @@ class AjaxController extends AppController
 
         if ($this->request->is('ajax')) {
 
-            $citizen = $this->Citizens->get($this->request->getData("citizen_id"), [
-                'contain' => [],
-            ]);
+            $citizen = $this->Citizens->find('all')
+                ->where(array('name' => $this->request->getData('name')))
+                ->first();
 
             $citizen = $this->Citizens->patchEntity($citizen, $this->request->getData());
 
             if ($this->Citizens->save($citizen)) {
 
-                $this->Flash->success(__('Citizen has been updated'));
+                $this->Flash->success(__('Информация обновлена'));
 
                 echo json_encode(array(
                     "status" => 1,
@@ -65,7 +65,7 @@ class AjaxController extends AppController
                 exit;
             }
 
-            $this->Flash->error(__('Failed to update citizen data'));
+            $this->Flash->error(__('Не удалось обновить информацию'));
 
             echo json_encode(array(
                 "status" => 0,
@@ -84,7 +84,7 @@ class AjaxController extends AppController
 
             if ($this->Citizens->delete($citizen)) {
 
-                $this->Flash->success(__('The citizen has been deleted.'));
+                $this->Flash->success(__('Информация о жителе была удалена'));
 
                 echo json_encode(array(
                     "status" => 1,
@@ -94,7 +94,7 @@ class AjaxController extends AppController
                 exit;
 
             } else {
-                $this->Flash->error(__('The citizen could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Не удалось удалить информацию о жителе. Пожалуйста, попробуйте снова'));
 
                 echo json_encode(array(
                     "status" => 0,

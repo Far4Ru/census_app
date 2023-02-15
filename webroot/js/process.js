@@ -19,7 +19,6 @@ $(function(){
             method: "post",
             success:function(response){
 
-                window.location.href = '/'
             }
         });
     });
@@ -36,7 +35,6 @@ $(function(){
             method: "post",
             success:function(response){
 
-                window.location.href = '/'
             }
         });
     });
@@ -47,6 +45,7 @@ $(function(){
         if(confirm("Вы уверены, что хотите удалить?")){
 
             var postdata = "id=" + $(this).attr("data-id");
+
             $.ajax({
                 url: "/ajax-delete-citizen",
                 data: postdata,
