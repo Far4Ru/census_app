@@ -2,13 +2,19 @@
 <div class="panel panel-primary">
 
   <div class="panel-body">
-    <form action="javascript:void(0)" id="frm-citizen" method="post">
-        <label for="input_name">Имя</label>
-        <input type="text" id="input_name" class="form-control">
-        <label for="input_age">Возраст</label>
-        <input type="text" id="input_age" class="form-control">
-        <button class="btn btn-primary" id="frm-add-citizen">Добавить</button>
-        <button class="btn btn-primary" id="frm-edit-citizen">Изменить</button>
+    <form id="frm-citizen">
+        <div>
+            <label for="input_name">Имя</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="input_age">Возраст</label>
+            <input type="number" name="age">
+        </div>
+        <div>
+            <button class="btn btn-primary" id="frm-add-citizen">Добавить</button>
+            <button class="btn btn-primary" id="frm-edit-citizen">Изменить</button>
+        </div>
      </form>
   </div>
 
@@ -32,11 +38,15 @@
   <div class="panel-body">
     <div>Переписано человек: <?php echo count($citizens); ?></div>
     <div>Общий возраст: <?php
-            echo array_reduce($citizens, function($acc, $element)
+            echo implode(array_reduce($citizens, function($acc, $element)
             {
-                $acc["age"] += $element["age"];
+                if (isset($acc)) {
+                    $acc["age"] += $element["age"];
+                } else {
+                    $acc["age"] = $element["age"];
+                }
                 return $acc;
-            });
+            }));
         ?>
     </div>
   </div>
