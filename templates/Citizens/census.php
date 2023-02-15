@@ -27,7 +27,7 @@
         if (count($citizens) > 0) {
           foreach ($citizens as $index => $data) {
         ?>
-            <li class="list-group-item"><?= $data->name ?> <?= $data->age ?> <a href="javascript:void(0)" class="btn btn-danger btn-delete-citizen" data-name="<?= $data->name ?>">x</a></li>
+            <li class="list-group-item"> <?= $data->name ?> <?= $data->age ?> <a href="javascript:void(0)" class="btn btn-danger btn-delete-citizen" data-id="<?= $data->id ?>">x</a></li>
         <?php
           }
         }

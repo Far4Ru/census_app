@@ -46,7 +46,7 @@ $(function(){
 
         if(confirm("Вы уверены, что хотите удалить?")){
 
-            var postdata = "citizen_name=" + $(this).attr("data-name");
+            var postdata = "id=" + $(this).attr("data-id");
             $.ajax({
                 url: "/ajax-delete-citizen",
                 data: postdata,
