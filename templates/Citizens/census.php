@@ -38,15 +38,19 @@
   <div class="panel-body">
     <div>Переписано человек: <?php echo count($citizens); ?></div>
     <div>Общий возраст: <?php
-            echo implode(array_reduce($citizens, function($acc, $element)
-            {
-                if (isset($acc)) {
-                    $acc["age"] += $element["age"];
-                } else {
-                    $acc["age"] = $element["age"];
-                }
-                return $acc;
-            }));
+            if (count($citizens) > 0) {
+                echo implode(array_reduce($citizens, function($acc, $element)
+                {
+                    if (isset($acc)) {
+                        $acc["age"] += $element["age"];
+                    } else {
+                        $acc["age"] = $element["age"];
+                    }
+                    return $acc;
+                }));
+            } else {
+                echo "Нет";
+            }
         ?>
     </div>
   </div>
